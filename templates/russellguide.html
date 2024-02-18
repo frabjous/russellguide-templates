@@ -85,23 +85,28 @@ body {
         background-color: var(--brown);
         color: var(--white);
         border-bottom: 1rem solid var(--blue);
-    }
-    body > footer {
         border-top: 1rem solid var(--blue);
     }
     body > footer a,
     body > footer a:link,
     body > footer a:visited {
-        color: var(--lightblue);
+        color: var(--hoverblue);
     }
+    body > footer a:hover,
+    body > footer a:link:hover,
+    body > footer a:visited:hover {
+        color: var(--blue);
+    }
+}
+
+body > footer a.bottomurl {
+    font-family: var(--monospacedfont);
 }
 
 body > header > div,
 body > main > div,
 body > footer > div
 {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
     max-width: 56rem;
     margin-left: auto;
     margin-right: auto;
@@ -117,15 +122,25 @@ body > footer {
     overflow: hidden;
 }
 
-body > header > div > div.leftlogo {
+body > header > a.leftlogo {
     display: inline-block;
     float: left;
     margin-right: 1.5rem;
-}
-
-body > header > div > div.leftlogo img {
+    margin-left: 0;
+    margin-bottom: 0;
+    margin-top: 0;
     height: 150px;
     width: 150px;
+}
+body > header > a.leftlogo img {
+    height: 150px;
+    width: 150px;
+}
+
+body > header div.rightbanner{
+    margin-top: 2rem;
+    font-variant: small-caps;
+    font-size: 200%;
 }
 
 body > header br {
@@ -528,12 +543,10 @@ $for(include-before)$
 $include-before$
 $endfor$
 <header>
+    <a href="https://russellguide.org" class="leftlogo" target="_blank">
+        <img src="brstamp.png" alt="Russell Stamp" >
+    </a>
     <div>
-        <div class="leftlogo">
-            <a href="https://russellguide.org" target="_blank">
-                <img src="brstamp.png" alt="Russell Stamp" >
-            </a>
-        </div>
         <div class="rightbanner">
             Open Guide to Bertrand Russell’s Philosophy
         </div>
@@ -561,7 +574,7 @@ $endfor$
 </main>
 <footer>
     <div>
-        <p><em>Open Guide to Bertrand Russell’s Philosophy</em><!-- ∙ ISSN 2159-0303 --></p>
+        <p><em>Open Guide to Bertrand Russell’s Philosophy</em><!-- ∙ ISSN 2159-0303 --> — <a href="https://russellguide.org" class="bottomurl">https://russellguide.org</a></p>
     </div>
 </footer>
 $for(include-after)$
