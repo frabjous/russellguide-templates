@@ -311,9 +311,7 @@ $endif$
 \bigskip
 \noindent $body$
 
-\vfill\begin{center}$if(license)$\textsf{$license$}\par$endif$\textsf{Copyright © $if(year)$$year$$endif$ $for(author/allbutlast)$$it.name$$sep$, $endfor$$if(author/allbutlast)$ and $endif$$for(author/
-last)$$it.name$$endfor$}\end{center}
-
+\vfill\begin{center}$if(license)$\textsf{$license$}\par $endif$\textsf{Copyright © $if(year)$$year$$endif$ $for(author/allbutlast)$$it.name$$sep$, $endfor$$if(author/allbutlast)$ and $endif$$for(author/last)$$it.name$$endfor$}\end{center}
 
 $for(include-after)$
 $include-after$
