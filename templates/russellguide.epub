@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="generator" content="pandoc" />
-    <title>$if(title)$$title$ | $endif$Open Guide for Bertrand Russell’s Philosophy</title>
+    <title>$if(title)$$title$ | $endif$Open Guide to Bertrand Russell’s Philosophy</title>
     <style>
 $if(highlighting-css)$
     $highlighting-css$
@@ -77,6 +77,7 @@ $endif$
                 <span class="authoraffiliation">$it.affiliation$</span></div>$endfor$
     $if(abstract)$<div class="abstractblock"><div class="abstracttitle">Abstract</div>$abstract$</div>$endif$
     <div class="copyright">
+        $if(license)$license$<br><br>$endif$
         Copyright © $if(year)$$year$$endif$ $for(author/allbutlast)$$it.name$$sep$, $endfor$$if(author/allbutlast)$ and $endif$$for(author/last)$$it.name$$endfor$
     </div>
     <!-- ISSN -->

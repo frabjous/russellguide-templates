@@ -1,7 +1,7 @@
 
 \PassOptionsToPackage{HTML}{xcolor}
 
-% JHAP pandoc template v0.1 2023-08-11
+% Russell Guide pandoc template v0.1 2024-02-18
 \documentclass[10pt]{article}
 
 % utf8 character encoding in source
@@ -62,7 +62,7 @@ $endif$
 
 % allow for color options
 \usepackage[HTML]{xcolor}
-\definecolor{jhappurple}{HTML}{43467b}
+\definecolor{brbrown}{HTML}{4e120e}
 
 % add URL line breaks if available
 \usepackage{xurl}
@@ -134,13 +134,12 @@ $if(author)$
     pdfauthor={$for(author/allbutlast)$$it.name$$sep$, $endfor$$if(author/allbutlast)$ and $endif$$for(author/last)$$it.name$$endfor$},
 $endif$
     pdflang={en},
-    pdfsubject={History of Analytical Philosophy},
+    pdfsubject={Philosophy},
 $if(keywords)$
     pdfkeywords={$for(keywords)$$it$$sep$, $endfor$},
 $endif$
     colorlinks=true,
-%    allcolors={[rgb]{0,0,0.7}},
-    allcolors={jhappurple},
+    allcolors={brbrown},
     pdfcreator={LaTeX via pandoc}
 }
 
@@ -240,7 +239,7 @@ $endif$
 $if(twosided)$
 \newcounter{fakepage}
 \setcounter{fakepage}{0}
-\fancyfoot[R]{\small{\textit{\textsf{\fontseries{l}\selectfont Journal for the History of Analytical Philosophy $if(volume)$vol.\ $volume$$if(number)$\ no.\ $number$$endif$$endif$}}}}
+\fancyfoot[R]{\small{\textit{\textsf{\fontseries{l}\selectfont Open Guide to Bertrand Russell’s Philosophy $if(volume)$vol.\ $volume$$if(number)$\ no.\ $number$$endif$$endif$}}}}
 \fancyhead[L]{\parbox{4.3in}{\small\refstepcounter{fakepage}\textsf{\arabic{fakepage}}\hfill\textsf{$for(author/allbutlast)$$it.name$$sep$, $endfor$$if(author/allbutlast)$ and $endif$$for(author/last)$$it.name$$endfor$}}}
 \fancyhead[R]{\parbox{4.3in}{\small\textsf{$if(reviewedtitle)$Review of \textit{$reviewedtitle$}$else$$if(title)$$title$$endif$$endif$\hfill\refstepcounter{fakepage}\arabic{fakepage}}}}
 $else$

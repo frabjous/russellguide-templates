@@ -1,6 +1,6 @@
 # Russell Guide Templates
 
-Contains the [pandoc](https://pandoc.org) templates used by the [*Open Guide for Bertrand Russell’s Philosophy*](https://russellguide.org) to create its output PDF, ePub and HTML files.
+Contains the [pandoc](https://pandoc.org) templates used by the [*Open Guide to Bertrand Russell’s Philosophy*](https://russellguide.org) to create its output PDF, ePub and HTML files.
 
 It is structured to serve as the target of pandoc’s `--data-dir` option.
 
