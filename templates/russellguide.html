@@ -128,17 +128,17 @@ main {
     padding: 3rem 3rem 1rem 3rem;
 }
 
-main > footer {
+main footer {
     margin-top: 3rem;
     font-family: var(--sansfont);
 }
 @media screen {
-    main > footer {
+    main footer {
         color: var(--brown);
     }
 }
 
-main > header > h1.documenttitle {
+main header > h1.documenttitle {
     font-family: var(--sansfont);
     font-weight: bold;
     font-size: 2rem;
@@ -146,102 +146,64 @@ main > header > h1.documenttitle {
 }
 
 @media screen {
-    main > header > h1.documenttitle {
+    main header > h2.documentsubtitle,
+    main header > h1.documenttitle {
         color: var(--brown);
     }
 }
 
-main > header > h2.documentsubtitle {
+main header > h2.documentsubtitle {
     font-family: var(--sansfont);
     font-weight: normal;
-    color: var(--purple);
     font-size: 1.5rem;
     margin: 0;
 }
 
-main > header > div.authorblock {
+main header > div.authorblock {
     margin-top: 2rem;
     display: inline-block;
     margin-right: 2rem;
 }
 
-main > header > div.reviewedby + div.authorblock {
-    margin-top: 1rem;
-}
-
-main > header > div.authorblock span {
+main header > div.authorblock span {
     display: block;
 }
 
-main > header > div.authorblock span.authorname {
+main header > div.authorblock span.authorname {
     text-transform; uppercase;
     font-family: var(--sansfont);
     font-weight: bold;
     margin-bottom: 0.2rem;
 }
 
-main > header > div.authorblock span.authoremail {
+main header > div.authorblock span.authoremail {
     font-family: var(--sansfont);
     margin-bottom: 0.2rem;
 }
 
-main > header > div.authorblock span.authoraffiliation {
+main header > div.authorblock span.authoraffiliation {
     font-family: var(--sansfont);
     font-style: italic;
 }
 
-main > header > div.abstractblock {
+main header > div.abstractblock {
     margin: 4rem 3rem 0 2.5rem;
     padding-left: 1rem;
     border-left: 3px solid var(--lightblue);
 }
 
-main > header > div.abstractblock div.abstracttitle {
+main header > div.abstractblock div.abstracttitle {
     text-transform: uppercase;
     color: var(--darkgray);
     font-family: var(--sansfont);
 }
 
-main > header > div.abstractblock p {
+main header > div.abstractblock p {
     line-height: 1.5rem;
     font-size: 0.9rem;
 }
 
-main > header div.reviewlabel {
-    text-transform: uppercase;
-    color: var(--darkgray);
-    font-family: var(--sansfont);
-    font-weight: bold;
-}
-
-main > header div.reviewlabel div {
-    display: inline-block;
-    padding-bottom: 0.5rem;
-    border-bottom: 3px solid var(--orange);
-}
-
-main > header h2.reviewedtitle {
-    font-size: 1.3rem;
-    font-family: var(--sansfont);
-    font-weight: bold;
-    color: var(--purple);
-    margin: 0.5rem 0 0.5rem 0;
-}
-
-main > header div.reviewedextra {
-    font-family: var(--sansfont);
-    color: var(--darkgray);
-    line-height: 1.5;
-}
-
-main > header div.reviewedby {
-    margin-top: 2rem;
-    font-family: var(--sansfont);
-    font-style: italic;
-}
-
 main article p {
-    color: var(--black);
     line-height: 1.7rem;
     margin-top: 1.5rem;
 }
@@ -275,36 +237,6 @@ ol.example > li:before {
     left: -1.4em;
 }
 
-div.volinfo {
-    padding: 0.8rem 2rem 0.6rem 2rem;
-    color: var(--darkgray);
-    font-family: var(--sansfont);
-    text-transform: uppercase;
-    border-bottom: 1px solid var(--medgray);
-}
-
-div.volinfo div.specialvolblock {
-    margin-top: 0.5rem;
-    text-transform: none;
-}
-
-div.volinfo div.specialvolblock div.specialvollabel div {
-    display: inline-block;
-    border-bottom: 2px solid var(--orange);
-    text-transform: uppercase;
-}
-
-div.volinfo div.specialvolblock div.specialvoltitle {
-    font-size: 1.2rem;
-    color: var(--purple);
-    font-style: italic;
-    margin: 0.2rem 0 0.5rem 0;
-}
-
-div.volinfo div.specialvolblock div.specialvoleditor {
-    line-height: 1.5;
-}
-
 article h1,
 article h2,
 article h3,
@@ -319,22 +251,40 @@ article h6 {
 }
 
 article h1 {
-    border-bottom: 3px solid var(--orange);
     font-size: 1.4rem;
 }
 
 article h2 {
-    border-bottom: 1px solid var(--orange);
     font-size: 1.2rem;
+}
+
+@media screen {
+    article h1,
+    article h2,
+    article h3,
+    article h4,
+    article h5,
+    article h6 {
+        color: var(--darkgray);
+    }
+    article h1 {
+        border-bottom: 3px solid var(--orange);
+    }
+    article h2 {
+        border-bottom: 1px solid var(--orange);
+    }
+    #refs::before,
+    #footnotes::before {
+        border-bottom: 1px solid var(--orange);
+        color: var(--darkgray);
+    }
 }
 
 #refs::before,
 #footnotes::before {
     display: block;
-    border-bottom: 1px solid var(--orange);
     margin: 4rem 0 0 0;
     font-family: var(--sansfont);
-    color: var(--darkgray);
     font-weight: bold;
     padding-bottom: 0.7rem;
     font-size: 1.2rem;
@@ -384,7 +334,12 @@ figcaption {
 blockquote {
     font-size: 90%;
     padding-left: 1rem;
-    border-left: 3px solid var(--lightblue);
+}
+
+@media screen {
+    blockquote {
+        border-left: 3px solid var(--lightblue);
+    }
 }
 
 main article blockquote p {
