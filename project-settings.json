@@ -86,6 +86,12 @@
                         "pandoc": "subelement"
                     }
                 },
+                "year": {
+                    "required": false,
+                    "inputtype": "number",
+                    "label": "Year",
+                    "pandoc": "yaml"
+                },
                 "guidesection": {
                     "required": false,
                     "label": "Guide Section",

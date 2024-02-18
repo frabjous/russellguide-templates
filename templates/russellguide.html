@@ -35,7 +35,8 @@ $endif$
     --black:  #101010;
     --brown: #4e120e;
     --orange: #f75D50;
-    --blue: #83A3FF;
+    --lightblue: #eceeff;
+    --blue: #83a3FF;
     --hoverblue: #727597;
 
     /* fonts */
@@ -73,67 +74,54 @@ body {
     }
 }
 
-body > div {
+@media screen {
+    body > header,
+    body > footer {
+        background-color: var(--brown);
+        color: var(--white);
+        border-bottom: 1rem solid var(--blue);
+    }
+    body > footer {
+        border-top: 1rem solid var(--blue);
+    }
+    body > footer a,
+    body > footer a:link,
+    body > footer a:visited {
+        color: var(--lightblue);
+    }
+}
+
+body > header > div,
+body > main > div,
+body > footer > div
+{
     margin-top: 1rem;
     margin-bottom: 1rem;
-    background-color: var(--white);
     max-width: 56rem;
     margin-left: auto;
     margin-right: auto;
     text-align: left;
 }
 
-body > div > header {
-    background-color: var(--purple);
+body > header {
     padding: 2rem 1.5rem 2rem 1.5rem;
 }
 
-body > div > header > div {
+body > header > div > div.leftlogo {
     display: inline-block;
-}
-
-body > div > header > div.leftlogo {
     float: left;
 }
 
-body > div > header > div.rightbanner {
-    float: right;
+body > header > br {
+    clear: both;
 }
 
-body > div > footer {
-    background-color: var(--lightgray);
+body > footer {
     padding: 1rem 2rem 1rem 2rem;
-    border-top: 1px solid var(--medgray);
-    border-bottom: 1.3rem solid var(--purple);
-}
-
-body > div > footer > p:first-child {
-    margin-bottom: 2rem;
-}
-
-body > div > footer > p:first-child a:first-child {
-    display: inline-block;
-    margin-right: 0.5rem;
-}
-
-body > div > footer > div.jhapeditorinfo div {
-    font-size: 0.9rem;
-    display: inline-block;
-    max-width: 25rem;
-    margin-right: 2rem;
-    margin-bottom: 1rem;
-}
-
-body > div > footer > div.jhapeditorinfo div strong {
-    font-family: var(--sansfont);
 }
 
 body svg {
     max-width: 100%;
-}
-
-body > div > header > br {
-    clear: both;
 }
 
 main {
@@ -143,15 +131,24 @@ main {
 main > footer {
     margin-top: 3rem;
     font-family: var(--sansfont);
-    color: var(--darkgray);
+}
+@media screen {
+    main > footer {
+        color: var(--brown);
+    }
 }
 
 main > header > h1.documenttitle {
     font-family: var(--sansfont);
     font-weight: bold;
-    color: var(--purple);
     font-size: 2rem;
     margin: 0;
+}
+
+@media screen {
+    main > header > h1.documenttitle {
+        color: var(--brown);
+    }
 }
 
 main > header > h2.documentsubtitle {
@@ -587,30 +584,13 @@ $endfor$
             $if(license)$license$<br><br>$endif$
             Copyright © $if(year)$$year$$endif$ $for(author/allbutlast)$$it.name$$sep$, $endfor$$if(author/allbutlast)$ and $endif$$for(author/last)$$it.name$$endfor$
         </footer>
+    </div>
 </main>
 <footer>
-<p><a href="http://creativecommons.org/licenses/by-nc/3.0/" rel="license" target="_blank"><img style="border-width: 0;" src="http://i.creativecommons.org/l/by-nc/3.0/88x31.png" alt="Creative Commons License" align="middle"></a>  <a href="http://creativecommons.org/licenses/by-nc/3.0/" rel="license" target="_blank">Creative Commons Attribution-NonCommercial 3.0 Unported License</a></p>
-<p><em>Journal for the History of Analytical Philosophy</em> (JHAP) ∙ <a href="https://jhaponline.org" target="_blank">jhaponline.org</a> ∙ ISSN 2159-0303</p>
-<div class="jhapeditorinfo">
     <div>
-        $if(jhapeditorinchief)$<strong>Editor in Chief</strong><br>
-        $jhapeditorinchief$<br><br>$endif$
-        $if(jhapboard)$<strong>Editorial Board</strong><br>
-        $for(jhapboard)$$jhapboard$<br>$endfor$$endif$
+        <p><em>Open Guide to Bertrand Russell’s Philosophy</em><!-- ∙ ISSN 2159-0303 --></p>
     </div>
-    <div>
-        $if(jhapspecialissueseditor)$<strong>Editor for Special Issues</strong><br>
-        $jhapspecialissueseditor$<br><br>$endif$
-        $if(jhapreviewseditors)$<strong>Review Editors</strong><br>
-        $for(jhapreviewseditors)$$jhapreviewseditors$<br>$endfor$<br>$endif$
-        $if(jhapdesign)$<strong>Design and Layout</strong><br>
-        $for(jhapdesign)$$jhapdesign$<br>$endfor$$endif$
-    </div>
-    <div>
-    </div>
-</div>
 </footer>
-</div>
 $for(include-after)$
 $include-after$
 $endfor$
