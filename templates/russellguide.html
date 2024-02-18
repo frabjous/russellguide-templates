@@ -14,36 +14,33 @@ $if(date-meta)$
     <meta name="dcterms.date" content="$date-meta$">
 $endif$
 $if(keywords)$
-    <meta name="keywords" content="$for(keywords)$$keywords$$sep$, $endfor$">
+    <meta name="keywords" content="Bertrand Russell, philosophy, $for(keywords)$$keywords$$sep$, $endfor$">
 $endif$
 $if(title)$
     <meta name="description" content="$title$" />
     <meta property="og:description" content="$title$">
 $endif$
-    <link rel="icon" href="https://jhaponline.org/public/journals/1/favicon_en_US.png">
+    <link rel="icon" href="favicon.ico">
 $if(title)$
     <meta property="og:title" content="$title$" />
 $endif$
-    <title>$if(title)$$title$ | $endif$Journal for the History of Analytical Philosophy$if(volume)$ vol. $volume$$if(number)$, num. $number$$endif$$endif$</title>
+    <title>$if(title)$$title$ | $endif$Open Guide to Bertrand Russell’s Philosophy</title>
     <style>
 :root {
     /* colors */
     --darkgray: #757575;
     --medgray: #dddddd;
     --lightgray: #f2f2f2;
-    --white: #ffffff;
-    --black:  #212121;
-    --purple: #43467b;
-    --orange: #f7bc4a;
-    --lightblue: #919FCE;
-    --blue: #345766;
-    --hoverblue: #6298AE;
+    --white: #f4f4f4;
+    --black:  #101010;
+    --brown: #4e120e;
+    --orange: #f75D50;
+    --blue: #83A3FF;
+    --hoverblue: #727597;
 
     /* fonts */
     --monospacedfont: 'DejaVu Sans Code', 'DejaVu Sans Mono', 'Droid Sans Mono', 'Fira Code', 'Fira Mono', 'JetBrains Mono', Inconsolata, Cousine, 'IBM Plex Mono', 'Red Hat Mono', 'Sarasa Mono K', 'Ubuntu Mono', Consolas, Menlo, Monaco, 'Lucida Console', monospace;
     --sansfont: 'Noto Sans', 'Helvetica', 'Arimo', 'Arial', sans-serif;
-    /* --sansfont: 'Montserrat', 'Helvetica', 'Arimo', 'Arial', sans-serif; */
-    /* --seriffont: 'Noto Serif', 'Roboto Serif', 'Droid Serif', 'DejaVu Serif', 'Georgia', 'Tinos', serif; */
     --seriffont: 'Noto Serif', 'Roboto Serif', 'Droid Serif', 'DejaVu Serif', 'Georgia', 'Tinos', serif;
 }
 
@@ -58,10 +55,22 @@ body {
     font-kerning: normal;
     margin: 0;
     padding: 0;
-    background-color: var(--medgray);
-    color: var(--black);
     text-align: center;
     font-family: var(--seriffont);
+}
+
+@media print {
+    body {
+        background-color: white;
+        color: black;
+    }
+}
+
+@media screen {
+    body {
+        background-color: var(--white);
+        color: var(--black);
+    }
 }
 
 body > div {
@@ -527,7 +536,6 @@ $endif$
 <script type="module">
     const styletag = document.createElement("style");
     styletag.innerHTML='@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");';
-    //styletag.innerHTML='@import url("https://fonts.cdnfonts.com/css/tex-gyre-pagella");@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");';
     document.head.appendChild(styletag);
     const refs = document.getElementById("refs");
     const notes = document.getElementById("footnotes");
@@ -549,57 +557,36 @@ $endif$
 $for(include-before)$
 $include-before$
 $endfor$
-<div>
 <header>
-    <div class="leftlogo">
-        <a href="https://jhaponline.org" target="_blank">
-            <img src="jhaplogo.svg" alt="JHAP" height="96" width="100">
-        </a>
+    <div>
+        <div class="leftlogo">
+            <a href="https://russellguide.org" target="_blank">
+                <img src="brstamp.png" alt="Russell Stamp" height="96" width="100">
+            </a>
+        </div>
+        <div class="rightbanner">
+            Open Guide for Bertrand Russell’s Philosophy
+        </div>
+        <br>
     </div>
-    <div class="rightbanner">
-        <a href="https://jhaponline.org" target="_blank">
-            <img src="jhapbanner.svg" height="96" width="476.57" alt="Journal for the History of Analytical Philosophy">
-        </a>
-    </div>
-    <br>
 </header>
-<div class="volinfo">$if(volume)$Volume $volume$$if(number)$, Number $number$$endif$$endif$$if(year)$ ($year$)$endif$
-$if(specialvoltitle)$
-<div class="specialvolblock">
-    <div class="specialvollabel"><div>Special Volume</div></div>
-    <div class="specialvoltitle">$specialvoltitle$</div>
-    $if(specialvoleditor)$<div class="specialvoleditor"><span class="editedbylabel">Edited by</span> $for(specialvoleditor/allbutlast)$<a href="mailto:$it.email$" target="_blank">$it.name$</a>, $it.affiliation$$sep$, $endfor$$if(specialvoleditor/allbutlast)$ and $endif$
-    $for(specialvoleditor/last)$ <a href="mailto:$it.email$" target="_blank">$it.name$</a>, $it.affiliation$$endfor$</div>$endif$
-</div>
-$endif$
-</div>
 <main>
-<header>
-$if(reviewedtitle)$
-    <div class="reviewlabel"><div>Review</div></div>
-    <h2 class="reviewedtitle">
-        $if(reviewedauthor)$$for(reviewedauthor)$$it$$sep$, $endfor$. $else$$if(reviewededitor)$<span class="edblock"><span class="edlist">$for(reviewededitor)$$it$$sep$, $endfor$</span>, ed<span class="edoptionals"></span></span>. $endif$$endif$<em>$reviewedtitle$$if(reviewedsubtitle)$: $reviewedsubtitle$$endif$</em>.
-    </h2>
-    <div class="reviewedextra">
-        $if(reviewedauthor)$$if(reviewededitor)$Edited by $for(reviewededitor)$$it$$sep$, $endfor$. $endif$$endif$$if(reviewedplace)$$reviewedplace$: $endif$$if(reviewedpublisher)$$reviewedpublisher$$endif$$if(reviewedyear)$, $reviewedyear$$endif$. $if(reviewedpages)$$reviewedpages$pp. $endif$$if(reviewedcost)$$$$reviewedcost$ $endif$$if(reviewedformat)$$reviewedformat$. $endif$$if(reviewedisbn)$ISBN $reviewedisbn$.$endif$
-    </div>
-    <div class="reviewedby">Reviewed by</div>
-$else$
-    $if(title)$<h1 class="documenttitle">$title$</h1>$endif$
-    $if(subtitle)$<h2 class="documentsubtitle">$subtitle$</h2>$endif$
-$endif$
-
-    $for(author)$<div class="authorblock"><span class="authorname">$it.name$</span>
+    <div>
+        <header>
+            $if(title)$<h1 class="documenttitle">$title$</h1>$endif$
+            $if(subtitle)$<h2 class="documentsubtitle">$subtitle$</h2>$endif$
+            $for(author)$<div class="authorblock"><span class="authorname">$it.name$</span>
                 <span class="authoremail"><a href="mailto:$it.email$">$it.email$</a></span>
                 <span class="authoraffiliation">$it.affiliation$</span></div>$endfor$
-    $if(abstract)$<div class="abstractblock"><div class="abstracttitle">Abstract</div>$abstract$</div>$endif$
-</header>
-<article>
-$body$
-</article>
-<footer>
-    Copyright © $if(year)$$year$$endif$ $for(author/allbutlast)$$it.name$$sep$, $endfor$$if(author/allbutlast)$ and $endif$$for(author/last)$$it.name$$endfor$
-</footer>
+            $if(abstract)$<div class="abstractblock"><div class="abstracttitle">Abstract</div>$abstract$</div>$endif$
+        </header>
+        <article>
+            $body$
+        </article>
+        <footer>
+            $if(license)$license$<br><br>$endif$
+            Copyright © $if(year)$$year$$endif$ $for(author/allbutlast)$$it.name$$sep$, $endfor$$if(author/allbutlast)$ and $endif$$for(author/last)$$it.name$$endfor$
+        </footer>
 </main>
 <footer>
 <p><a href="http://creativecommons.org/licenses/by-nc/3.0/" rel="license" target="_blank"><img style="border-width: 0;" src="http://i.creativecommons.org/l/by-nc/3.0/88x31.png" alt="Creative Commons License" align="middle"></a>  <a href="http://creativecommons.org/licenses/by-nc/3.0/" rel="license" target="_blank">Creative Commons Attribution-NonCommercial 3.0 Unported License</a></p>
