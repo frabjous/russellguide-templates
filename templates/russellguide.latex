@@ -149,21 +149,6 @@ $endif$
 % allow verbatim text in footnotes
 \VerbatimFootnotes
 
-$if(tables)$
-\usepackage{longtable,booktabs,array}
-$if(multirow)$
-\usepackage{multirow}
-$endif$
-% get rid of longtable centering
-\setlength{\LTleft}{0pt}
-\setlength{\LTright}{\fill}
-% get rid of table lines
-\renewcommand{\toprule}{\relax}
-\renewcommand{\bottomrule}{\relax}
-% small vertical strech
-\renewcommand{\arraystretch}{1.4}
-
-$endif$
 % Set default figure placement to htbp
 \makeatletter
 \def\fps@figure{htbp}
@@ -239,13 +224,13 @@ $endif$
 $if(twosided)$
 \newcounter{fakepage}
 \setcounter{fakepage}{0}
-\fancyfoot[R]{\small{\textit{\textsf{\fontseries{l}\selectfont Open Guide to Bertrand Russell’s Philosophy $if(volume)$vol.\ $volume$$if(number)$\ no.\ $number$$endif$$endif$}}}}
+\fancyfoot[R]{\small{\textit{\textsf{\fontseries{l}\selectfont Open Guide to Bertrand Russell’s Philosophy $if(year)$$year$$endif$}}}}
 \fancyhead[L]{\parbox{4.3in}{\small\refstepcounter{fakepage}\textsf{\arabic{fakepage}}\hfill\textsf{$for(author/allbutlast)$$it.name$$sep$, $endfor$$if(author/allbutlast)$ and $endif$$for(author/last)$$it.name$$endfor$}}}
-\fancyhead[R]{\parbox{4.3in}{\small\textsf{$if(reviewedtitle)$Review of \textit{$reviewedtitle$}$else$$if(title)$$title$$endif$$endif$\hfill\refstepcounter{fakepage}\arabic{fakepage}}}}
+\fancyhead[R]{\parbox{4.3in}{\small\textsf{$if(title)$$title$$endif$\hfill\refstepcounter{fakepage}\arabic{fakepage}}}}
 $else$
-\fancyfoot[R]{\small{\textit{\textsf{\fontseries{l}\selectfont Journal for the History of Analytical Philosophy $if(volume)$vol.\ $volume$$if(number)$\ no.\ $number$$endif$$endif$}}}}
+\fancyfoot[R]{\small{\textit{\textsf{\fontseries{l}\selectfont Open Guide to Bertrand Russell’s Philosophy $if(year)$$year$$endif$}}}}
 \fancyhead[LE]{\small\textsf{$for(author/allbutlast)$$it.name$$sep$, $endfor$$if(author/allbutlast)$ and $endif$$for(author/last)$$it.name$$endfor$}}
-\fancyhead[LO]{\small\textsf{$if(reviewedtitle)$Review of \textit{$reviewedtitle$}$else$$if(title)$$title$$endif$$endif$}}
+\fancyhead[LO]{\small\textsf{$if(title)$$title$$endif$}}
 \fancyhead[R]{\small\textsf{\thepage}}
 $endif$
 \pagestyle{fancy}
@@ -270,92 +255,42 @@ $endif$
 \xspaceskip=\fontdimen2\font plus \fontdimen3\font minus \fontdimen4\font
 \advance\xspaceskip by \fontdimen7\font
 
-%define JHAP page
-\newcommand{\jhappage}{%
-\thispagestyle{empty}
-\begin{$if(twosided)$flushright$else$center$endif$}
-
-\begin{Huge}
-\noindent\textcolor{jhappurple}{Journal for the History\\
-of Analytical Philosophy}
-
-\end{Huge}
-
-\bigskip\textsf{$if(volume)$VOLUME $volume$$if(number)$, NUMBER $number$$endif$$endif$$if(year)$ ($year$)$endif$}
-
-
-\vfill$if(jhapeditorinchief)$\textsf{\textbf{Editor in Chief}}\\
-$jhapeditorinchief$$endif$
-
-$if(jhapboard)$\bigskip\textsf{\textbf{Editorial Board}}\\
-$for(jhapboard)$$jhapboard$$sep$\\
-$endfor$$endif$
-
-$if(jhapspecialissueseditor)$\bigskip\textsf{\textbf{Editor for Special Issues}}\\
-$jhapspecialissueseditor$$endif$
-
-$if(jhapreviewseditors)$\bigskip\textsf{\textbf{Review Editors}}\\
-$for(jhapreviewseditors)$$jhapreviewseditors$$sep$\\
-$endfor$$endif$
-
-$if(jhapdesign)$\bigskip\textsf{\textbf{Design and Layout}}\\
-$for(jhapdesign)$$jhapdesign$$sep$\\
-$endfor$$endif$
-
-\vfill \textsf{ISSN 2159-0303}
-
-\bigskip\begin{large}\href{https://jhaponline.org}{\textsf{\textit{jhaponline.org}}}\end{large}
-$if(twosided)$
-
-\bigskip\textsf{Copyright © $if(year)$$year$$endif$ $for(author/allbutlast)$$it.name$$sep$, $endfor$$if(author/allbutlast)$ and $endif$$for(author/last)$$it.name$$endfor$}%
-$endif$
-\end{$if(twosided)$flushright$else$center$endif$}%
-}
-
 $for(header-includes)$
 $header-includes$
 $endfor$
 
 \begin{document}%
 
-$if(twosided)$\vspace*{-7ex}\jhappage$endif$
+$if(twosided)$
+\begin{center}
+\begin{Large}
+~
+
+\vfill
+Open Guide to Bertrand Russell’s Philosophy
+
+\vfill
+$if(year)$$year$$endif$
+\end{Large}
+\end{center}
+\clearpage
+$endif$
 \vspace*{-7ex}\thispagestyle{plain}
 \noindent\leavevmode%
 \parbox[t]{3in}{%
 \small%
-$if(twosided)$\phantom{$endif$\textbf{\textsf{Journal for the History of Analytical Philosophy}}$if(twosided)$}$endif$$if(volume)$
-
-\par$if(twosided)$\phantom{$endif$\textsf{Volume $volume$$if(number)$, Number $number$$endif$$if(year)$ ($year$)$endif$}$if(twosided)$}$endif$$endif$$if(specialvoltitle)$
-
-\par\smallskip\textsf{SPECIAL VOLUME}
-
-\textsf{\textit{$specialvoltitle$}}$if(specialvoleditor)${\raggedright
-
-\par\raggedright\smallskip\textsf{Edited by $for(specialvoleditor/allbutlast)$$it.name$, $it.affiliation$$sep$, $endfor$$if(specialvoleditor/allbutlast)$ and $endif$$for(specialvoleditor/last)$$it.name$, $it.affiliation$$endfor$}}
-$endif$$endif$
-}%
-%\hfill{\raisebox{1ex}{\fbox{\parbox[t]{0.52in}{{\Huge\color{jhappurple}\noindent \hspace*{0.1em}JH\\\noindent\hspace*{4.5pt}\,AP}}}}}
-\hfill{\raisebox{1ex}{\fbox{\parbox[t]{0.52in}{{\Huge\color{jhappurple}\noindent JH\\\noindent\hspace*{4.5pt}AP}}}}}
-
-$if(reviewedtitle)$
-{\raggedright
-\noindent\begin{small}\textsf{REVIEW}\end{small}\\[1ex]
-\begin{Large}\raggedright\textsf{\textbf{$if(reviewedauthor)$$for(reviewedauthor)$$it$$sep$, $endfor$. $else$$if(reviewededitor)$$for(reviewededitor)$$it$$sep$, $endfor$, ed. $endif$$endif$\textit{$reviewedtitle$$if(reviewedsubtitle)$: $reviewedsubtitle$$endif$}}}\end{Large}\\[0.5ex]
-\textsf{\raggedright\small $if(reviewedauthor)$$if(reviewededitor)$Edited by $for(reviewededitor)$$it$$sep$, $endfor$. $endif$$endif$$if(reviewedplace)$$reviewedplace$: $endif$$if(reviewedpublisher)$$reviewedpublisher$$endif$$if(reviewedyear)$, $reviewedyear$$endif$. $if(reviewedpages)$$reviewedpages$pp. $endif$$if(reviewedcost)$\$$$reviewedcost$ $endif$$if(reviewedformat)$$reviewedformat$. $endif$$if(reviewedisbn)$ISBN $reviewedisbn$.$endif$}\\[1.5ex]
-\textsf{\textit{Reviewed by}}
+$if(twosided)$\phantom{$endif$\textbf{\textsf{Open Guide to Bertrand Russell’s Philosophy}}$if(twosided)$}$endif$
 }
-$else$
 $if(title)$
 \bigskip\noindent\begin{LARGE}\textsf{\textbf{$title$}}\end{LARGE}
 $endif$
 $if(subtitle)$
 \par\smallskip\noindent\begin{Large}\textsf{$subtitle$}\end{Large}
 $endif$
-$endif$
 
 \noindent$for(author)$
 \parbox{0.45\linewidth}{%
-$if(reviewedtitle)$\medskip$else$\bigskip$endif$\textsf{\textbf{$it.name$}}\\
+\bigskip\textsf{\textbf{$it.name$}}\\
 \href{mailto:$it.email$}{\textsf{$it.email$}}\\
 \textsf{\textit{$it.affiliation$}}
 }\hfill$endfor$
@@ -376,11 +311,9 @@ $endif$
 \bigskip
 \noindent $body$
 
-$if(twosided)$
-$else$
-\vfill\begin{center}\textsf{Copyright © $if(year)$$year$$endif$ $for(author/allbutlast)$$it.name$$sep$, $endfor$$if(author/allbutlast)$ and $endif$$for(author/last)$$it.name$$endfor$}\end{center}
-\clearpage\jhappage
-$endif$
+\vfill\begin{center}$if(license)$\textsf{$license$}\par$endif$\textsf{Copyright © $if(year)$$year$$endif$ $for(author/allbutlast)$$it.name$$sep$, $endfor$$if(author/allbutlast)$ and $endif$$for(author/
+last)$$it.name$$endfor$}\end{center}
+
 
 $for(include-after)$
 $include-after$
