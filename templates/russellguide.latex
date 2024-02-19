@@ -93,6 +93,8 @@ $endif$
 
 % graphics package
 \usepackage{graphicx}
+% package for aligning graphics
+\usepackage{graphbox}
 % Scale images if necessary, so that they will not overflow the page
 % margins by default, and it is still possible to overwrite the defaults
 % using explicit options in \includegraphics[width, height, ...]{}
@@ -260,9 +262,6 @@ $header-includes$
 $endfor$
 
 \begin{document}%
-\AddToShipoutPictureBG*{
-\AtTextUpperLeft{\includegraphics{brstamp-gray.png}}
-}%
 $if(twosided)$
 \begin{center}
 \begin{Large}
@@ -279,9 +278,13 @@ $if(year)$$year$$endif$
 $endif$
 \vspace*{-7ex}\thispagestyle{plain}
 \noindent\leavevmode%
-\parbox[t]{3in}{%
+\includegraphics[width=1in,align=u]{~/data/ogtf/russellguide/brstamp-gray.png}%
+\hfill\parbox[t]{3in}{%
+\vspace*{-0.5\baselineskip}
 \small%
+\flushright
 $if(twosided)$\phantom{$endif$\textbf{\textsf{Open Guide to Bertrand Russell’s Philosophy}}$if(twosided)$}$endif$
+$if(year)$\par $year$ edition$endif$
 }
 $if(title)$
 \par\bigskip\noindent\begin{LARGE}\hyphenpenalty=10000%
@@ -315,7 +318,7 @@ $endif$
 \bigskip
 \noindent $body$
 
-\vfill\begin{center}$if(license)$\textsf{$license$}\par $endif$\textsf{Copyright © $if(year)$$year$$endif$ $for(author/allbutlast)$$it.name$$sep$, $endfor$$if(author/allbutlast)$ and $endif$$for(author/last)$$it.name$$endfor$}\end{center}
+\vfill\begin{center}$if(license)$\vfill\textsf{$license$}\par \medskip $endif$\textsf{Copyright © $if(year)$$year$$endif$ $for(author/allbutlast)$$it.name$$sep$, $endfor$$if(author/allbutlast)$ and $endif$$for(author/last)$$it.name$$endfor$}\end{center}
 
 $for(include-after)$
 $include-after$
