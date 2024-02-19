@@ -21,12 +21,12 @@ $endif$
 % T1 output font encoding
 \usepackage[T1]{fontenc}
 
-% font choice: TeX Gyre Pagella
-\usepackage[osf]{newpxtext}
-\usepackage{newpxmath}
+% font choice: Libertinus
+\usepackage{libertinus}
+\usepackage{libertinust1math}
 
 %Open Sans as default sans
-\usepackage[defaultsans]{opensans}
+%\usepackage[defaultsans]{opensans}
 
 % some symbols like Euro
 \usepackage{textcomp}
