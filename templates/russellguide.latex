@@ -260,7 +260,9 @@ $header-includes$
 $endfor$
 
 \begin{document}%
-
+\AddToShipoutPictureBG*{
+\AtTextUpperLeft{\includegraphics{brstamp-gray.png}}
+}%
 $if(twosided)$
 \begin{center}
 \begin{Large}
@@ -282,7 +284,9 @@ $endif$
 $if(twosided)$\phantom{$endif$\textbf{\textsf{Open Guide to Bertrand Russell’s Philosophy}}$if(twosided)$}$endif$
 }
 $if(title)$
-\bigskip\noindent\begin{LARGE}\textsf{\textbf{$title$}}\end{LARGE}
+\par\bigskip\noindent\begin{LARGE}\hyphenpenalty=10000%
+\exhyphenpenalty=10000%
+\raggedright\textsf{\textbf{$title$}}\par\end{LARGE}
 $endif$
 $if(subtitle)$
 \par\smallskip\noindent\begin{Large}\textsf{$subtitle$}\end{Large}
@@ -290,7 +294,7 @@ $endif$
 
 \noindent$for(author)$
 \parbox{0.45\linewidth}{%
-\bigskip\textsf{\textbf{$it.name$}}\\
+\bigskip\small\textsf{\textbf{$it.name$}}\\
 \href{mailto:$it.email$}{\textsf{$it.email$}}\\
 \textsf{\textit{$it.affiliation$}}
 }\hfill$endfor$
