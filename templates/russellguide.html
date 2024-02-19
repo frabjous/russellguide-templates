@@ -291,7 +291,7 @@ h2#toc-title {
 
 @media screen {
     h2#toc-title {
-        color: var(--brown);
+        color: var(--blue);
     }
 }
 
@@ -304,16 +304,27 @@ h2#toc-title {
     content: '. '
 }
 
+nav#TOC {
+    margin-top: 3rem;
+}
+
 nav#TOC ul {
     list-style-type: none;
     padding-left: 0;
     font-family: var(--sansfont);
 }
 
-nav#TOC ul a
+nav#TOC ul a,
 nav#TOC ul a:link,
 nav#TOC ul a:visited {
     color: var(--brown);
+}
+
+nav#TOC ul a:hover,
+nav#TOC ul a:link:hover,
+nav#TOC ul a:visited:hover {
+    color: var(--blue);
+    text-decoration: underline;
 }
 
 article h1,
