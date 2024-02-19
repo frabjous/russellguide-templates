@@ -36,8 +36,9 @@ $endif$
     --brown: #4e120e;
     --orange: #f75D50;
     --lightblue: #eceeff;
-    --hoverblue: #83a3FF;
-    --blue: #727597;
+    --xhoverblue: #83a3FF;
+    --hoverblue: #727597;
+    --blue: #464757;
 
     /* fonts */
     --monospacedfont: 'DejaVu Sans Code', 'DejaVu Sans Mono', 'Droid Sans Mono', 'Fira Code', 'Fira Mono', 'JetBrains Mono', Inconsolata, Cousine, 'IBM Plex Mono', 'Red Hat Mono', 'Sarasa Mono K', 'Ubuntu Mono', Consolas, Menlo, Monaco, 'Lucida Console', monospace;
@@ -222,7 +223,12 @@ main header > div.authorblock span.authoraffiliation {
 main header > div.abstractblock {
     margin: 4rem 3rem 0 2.5rem;
     padding-left: 1rem;
-    border-left: 3px solid var(--lightblue);
+}
+
+@media screen {
+    main header > div.abstractblock {
+        border-left: 3px solid var(--blue);
+    }
 }
 
 main header > div.abstractblock div.abstracttitle {
@@ -278,7 +284,6 @@ article h5,
 article h6 {
     margin: 4rem 0 0 0;
     font-family: var(--sansfont);
-    color: var(--darkgray);
     font-weight: bold;
     padding-bottom: 0.7rem;
 }
@@ -298,17 +303,17 @@ article h2 {
     article h4,
     article h5,
     article h6 {
-        color: var(--darkgray);
+        color: var(--blue);
     }
     article h1 {
-        border-bottom: 3px solid var(--orange);
+        border-bottom: 3px solid var(--brown);
     }
     article h2 {
-        border-bottom: 1px solid var(--orange);
+        border-bottom: 1px solid var(--brown);
     }
     #refs::before,
     #footnotes::before {
-        border-bottom: 1px solid var(--orange);
+        border-bottom: 1px solid var(--brown);
         color: var(--darkgray);
     }
 }
@@ -371,7 +376,7 @@ blockquote {
 
 @media screen {
     blockquote {
-        border-left: 3px solid var(--lightblue);
+        border-left: 3px solid var(--hoverblue);
     }
 }
 
