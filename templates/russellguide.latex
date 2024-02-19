@@ -124,6 +124,17 @@ $endif$
 \renewcommand{\arraystretch}{1.4}
 
 $endif$
+$if(toc)$
+
+% package for toc
+\usepackage{tocloft}
+\setlength{\cftbeforesecskip}{0pt}
+\renewcommand*{\cftsecfont}{}
+\renewcommand*\contentsname{Contents}
+\renewcommand*{\cftsecpagefont}{}
+\renewcommand*{\cftsecaftersnum}{.}
+\renewcommand*{\cfttoctitlefont}{\large\sffamily\bfseries}
+$endif$
 % PDF bookmarks; also loads hyperref
 \usepackage{bookmark}
 
@@ -313,6 +324,13 @@ $abstract$
 \end{footnotesize}
 
 }\hfill{\phantom{.}
+$endif$
+
+$if(toc)$
+\setcounter{tocdepth}{$toc-depth$}
+\begin{small}
+\tableofcontents
+\end{small}
 $endif$
 
 \bigskip
