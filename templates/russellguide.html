@@ -283,6 +283,39 @@ ol.example > li:before {
     left: -1.4em;
 }
 
+h2#toc-title {
+    font-size: inherit;
+    text-transform: uppercase;
+    font-family: var(--sansfont);
+}
+
+@media screen {
+    h2#toc-title {
+        color: var(--brown);
+    }
+}
+
+.toc-section-number {
+    display: inline-block;
+    margin-right: 0.5rem;
+}
+
+.toc-section-number:after {
+    content: '. '
+}
+
+nav#TOC ul {
+    list-style-type: none;
+    padding-left: 0;
+    font-family: var(--sansfont);
+}
+
+nav#TOC ul a
+nav#TOC ul a:link,
+nav#TOC ul a:visited {
+    color: var(--brown);
+}
+
 article h1,
 article h2,
 article h3,
@@ -316,11 +349,11 @@ article h2 {
         border-bottom: 3px solid var(--hoverblue);
     }
     article h2 {
-        border-bottom: 1px solid var(--hoverblue);
+        border-bottom: 2px solid var(--hoverblue);
     }
     #refs::before,
     #footnotes::before {
-        border-bottom: 1px solid var(--hoverblue);
+        border-bottom: 2px solid var(--hoverblue);
         color: var(--brown);
     }
 }
@@ -569,6 +602,12 @@ $endfor$
                 <span class="authoremail"><a href="mailto:$it.email$">$it.email$</a></span>
                 <span class="authoraffiliation">$it.affiliation$</span></div>$endfor$
             $if(abstract)$<div class="abstractblock"><div class="abstracttitle">Abstract</div>$abstract$</div>$endif$
+            $if(toc)$
+                <nav id="TOC" role="doc-toc">
+                <h2 id="toc-title">Contents</h2>
+                $table-of-contents$
+                </nav>
+            $endif$
         </header>
         <article>
             $body$
