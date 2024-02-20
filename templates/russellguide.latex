@@ -24,6 +24,7 @@ $endif$
 % font choice: Libertinus
 \usepackage{libertinus}
 \usepackage{libertinust1math}
+\usepackage{beramono}
 
 %Open Sans as default sans
 %\usepackage[defaultsans]{opensans}
@@ -274,18 +275,8 @@ $endfor$
 
 \begin{document}%
 $if(twosided)$
-\begin{center}
-\begin{Large}
 ~
-
-\vfill
-Open Guide to Bertrand Russell’s Philosophy
-
-\vfill
-$if(year)$$year$$endif$
-\end{Large}
-\end{center}
-\clearpage
+\columnbreak
 $endif$
 \vspace*{-7ex}\thispagestyle{plain}
 \noindent\leavevmode%
@@ -295,6 +286,7 @@ $endif$
 \small%
 \flushright
 $if(twosided)$\phantom{$endif$\textbf{\textsf{Open Guide to Bertrand Russell’s Philosophy}}$if(twosided)$}$endif$
+\par \begin{footnotesize}\href{https://russellguide.org}{\texttt{https://russellguide.org}}\end{footnotesize}
 $if(year)$\par $year$ edition$endif$
 }
 $if(title)$
