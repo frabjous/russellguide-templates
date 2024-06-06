@@ -136,6 +136,13 @@ $if(toc)$
 \renewcommand*{\cftsecaftersnum}{.}
 \renewcommand*{\cfttoctitlefont}{\large\sffamily\bfseries}
 $endif$
+% Packages for early analytic
+\usepackage{grundgesetze, fge, principia}
+\setlength{\GGthickness}{0.6pt}
+\setlength{\GGbeforelen}{5pt}
+\setlength{\GGafterlen}{5pt}
+\setlength{\GGlift}{5pt}
+
 % PDF bookmarks; also loads hyperref
 \usepackage{bookmark}
 
